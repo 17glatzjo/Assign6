@@ -25,7 +25,7 @@ Clock::Clock(int a, int b) : a(0), b(0)
 {
 }
 
-Clock addmin(Clock c1)																	//Adds mins to Clock 1 making use of the + operator
+Clock addmin(Clock c1)															//Adds mins to Clock 1 making use of the + operator
 {
 	clock.b + 10;
 	if (clock.b > 60)
@@ -41,14 +41,14 @@ Clock addmin(Clock c1)																	//Adds mins to Clock 1 making use of the 
 	return c1;	
 }
 
-friend std::istream& operator>>(std::istream &inp, Clock &clock)
+friend std::istream& operator>>(std::istream &inp, Clock &clock)									//Overloads the input operator
 {
 	std::clockStr;
 	inp >> clockStr;
-	if (inp)																			//Checks the inp to make sure its not failing
+	if (inp)															//Checks the inp to make sure its not failing
 	{
 		std::string::size_type colonPos;	
-		colonPos = polyStr.find(":");													//Finds the first instance of ":". Used to find the end of aStr and beginning of bStr.
+		colonPos = polyStr.find(":");												//Finds the first instance of ":". Used to find the end of aStr and beginning of bStr.
 		if (colonPos == std::string::npos)
 		{
 			inp.setstate(std::ios_base::failbit);										//If there is no instance, then this is an invalid time
@@ -56,15 +56,15 @@ friend std::istream& operator>>(std::istream &inp, Clock &clock)
 		}
 		
 		std::string aStr, bStr;
-		aStr = polyStr.substr(0, colonPos);												//All characters preceding the ":" token
-		bStr = polyStr.substr(colonPos+1);												//All characters after the ":" token
+		aStr = polyStr.substr(0, colonPos);											//All characters preceding the ":" token
+		bStr = polyStr.substr(colonPos+1);											//All characters after the ":" token
 		
 		if(isTime(aStr, true) && isTime(bStr, false))									
 		{
 			clock.a = atoi(aStr.c_str());
 			clock.b = atoi(bStr.c_str());	
 		}	
-		else																			//Set failbit to tell system that the last read from the input failed
+		else															//Set failbit to tell system that the last read from the input failed
 		{
 			inp.setstate(std::ios_base::failbit);
 			return inp;
@@ -73,7 +73,7 @@ friend std::istream& operator>>(std::istream &inp, Clock &clock)
 	return inp;
 }	
 
-friend std::ostream& operator<<(std::ostream& outp, const Clock &clock)
+friend std::ostream& operator<<(std::ostream& outp, const Clock &clock)									//Overloads the Output Operator
 {
 	
 	outp
@@ -83,7 +83,7 @@ friend std::ostream& operator<<(std::ostream& outp, const Clock &clock)
 	
 }
 	
-friend Clock operator>(Clock c1, const Clock& c2)
+friend Clock operator>(Clock c1, const Clock& c2)											//Overloads the > Operator
 {
 	boolean checker = false;
 	if (c1 > c2)
@@ -97,7 +97,7 @@ friend Clock operator>(Clock c1, const Clock& c2)
 	return checker;
 }
 
-friend Clock operator+(Clock c1, const Clock& c2)
+friend Clock operator+(Clock c1, const Clock& c2)											//Overloads the + operator
 {
-	
+
 }	

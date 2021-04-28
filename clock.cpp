@@ -25,7 +25,7 @@ Clock::Clock(int a, int b) : a(0), b(0)
 {
 }
 
-addmin(const Clock& c1)																	//Adds mins to Clock 1 making use of the + operator
+Clock addmin(const Clock& c1)															//Adds mins to Clock 1 making use of the + operator
 {
 	if (c1.b > 60)
 	{
@@ -55,7 +55,7 @@ std::istream& operator>>(std::istream &inp, Clock &clock)
 		}																				
 																						
 		std::string aStr, bStr;															
-		aStr = clockStr.substr(0, colonPos);												//All characters preceding the ":" token
+		aStr = clockStr.substr(0, colonPos);											//All characters preceding the ":" token
 		bStr = clockStr.substr(colonPos+1);												//All characters after the ":" token
 																						
 		if(isTime(aStr, true) && isTime(bStr, false))									
@@ -82,22 +82,25 @@ std::ostream& operator<<(std::ostream& outp, const Clock &clock)
 																						
 }																						
 	
-Clock operator>(Clock c1, const Clock& c2)										//Overloads the ">" operator
+Clock operator>(Clock c1, const Clock& c2)												//Overloads the ">" operator
 {
-	boolean checker = false;
+	bool checker = false;
 	if (c1.a > c2.a)
 	{
 		checker = true;
+		return c1;
 	}
 	else if (c1.a == c2.a && c1.b > c2.b)
 	{
 		checker = true;
+		return c1;
 	}
-	return checker;
+	checker = false;
+	return c2;
 }
 
-Clock operator+(const Clock& c1)													//Overloads the "+" operator
+Clock operator+(const Clock& c1)														//Overloads the "+" operator
 {
 	c1.b + 10;
-	return *this;
+	return c1.b;
 }	

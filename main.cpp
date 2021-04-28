@@ -37,15 +37,15 @@ int main()
 	c1.addmin(c1);
 	
 	std::cout << "Clock 1 says: " << c1;						//Outputs
-	std::cout << "Clock 2 says: " << c2;
+	std::cout << "\nClock 2 says: " << c2;
 	
 	if (checker == true)										//Comparison results
 	{
-		std::cout << "Clock 1 is later than Clock 2";
+		std::cout << "\nClock 1 is later than Clock 2";
 	}
 	else if (checker == false)
 	{
-		std::cout << "Clock 2 is later than Clock 1";
+		std::cout << "\nClock 2 is later than Clock 1";
 	}
 	
 	return 0;

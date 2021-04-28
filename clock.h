@@ -1,5 +1,3 @@
-//CLASS PROVIDED: Clock
-//
 //CONSTRUCTOR for the Clock Class:
 //	Clock()
 //		Description: constructor will initialize a default Clock object 
@@ -13,10 +11,10 @@
 //
 //MODIFICATION MEMBER FUNCTIONS for the Polynomial Class:
 //
-//
-//
-//
-//
+//	Clock addmin(Clock c1)
+//		Description: Add 10 minutes to Clock 1
+//		PreConditions: Valid Time 
+//		PostConsitions: Clock has 10 minutes added to it, and Hour and minutes changed if necessary
 //
 //FRIEND FUNCTIONS for the Polynomial Class:
 //	friend std::istream& operator>>(std::istream& inp, Clock& c2);
@@ -65,4 +63,4 @@ class Clock
 	
 	friend Clock operator>(Clock c1, const Clock& c2);
 	friend Clock operator+(Clock c1, const Clock& c2);
-} 
+}; 
